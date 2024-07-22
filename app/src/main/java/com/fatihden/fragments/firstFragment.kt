@@ -31,7 +31,7 @@ class firstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        
+        binding.textView.text = "First Fragment onViewCreated"
     }
 
     override fun onDestroy() {
