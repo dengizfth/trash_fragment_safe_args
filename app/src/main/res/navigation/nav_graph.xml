@@ -22,5 +22,8 @@
         <action
             android:id="@+id/action_secondFragment_self"
             app:destination="@id/secondFragment" />
+        <argument
+            android:name="userName"
+            app:argType="string" />
     </fragment>
 </navigation>
