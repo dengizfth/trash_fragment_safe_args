@@ -29,6 +29,14 @@ class SecondFragment : Fragment() {
 
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        arguments?.let {
+            val userName = SecondFragmentArgs.fromBundle(it).userName
+            binding.textView2.text =binding.textView2.text.toString() + "   " + userName
+        }
+
+    }
 
     override fun onDestroy() {
         super.onDestroy()
