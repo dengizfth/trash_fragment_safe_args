@@ -44,8 +44,9 @@ class firstFragment : Fragment() {
 
 
     fun sonraki(view: View){
+        val argUserName = binding.editTextText.text.toString()
         // Action ile fragmenler arasında geçiş ve argümanları action için ekleyerek veri transferi
-        val action = firstFragmentDirections.actionFirstFragmentToSecondFragment()
+        val action = firstFragmentDirections.actionFirstFragmentToSecondFragment(argUserName)
         Navigation.findNavController(view).navigate(action)
 
     }
