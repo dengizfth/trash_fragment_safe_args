@@ -1,10 +1,13 @@
 package com.fatihden.fragments
 
+import android.app.DirectAction
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.ActivityNavigator
+import androidx.navigation.Navigation
 import com.fatihden.fragments.databinding.FragmentFirstBinding
 
 
@@ -31,14 +34,25 @@ class firstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.textView.text = "First Fragment onViewCreated"
+        binding.editTextText.setText("")
+        binding.btnGoToSecond.setOnClickListener {
+            sonraki(it)
+        }
+
     }
 
+
+
+    fun sonraki(view: View){
+        // Action ile fragmenler arasında geçiş ve argümanları action için ekleyerek veri transferi
+        val action = firstFragmentDirections.actionFirstFragmentToSecondFragment()
+        Navigation.findNavController(view).navigate(action)
+
+    }
     override fun onDestroy() {
         super.onDestroy()
 
         _binding = null
 
     }
-
 }
